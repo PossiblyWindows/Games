@@ -1,0 +1,261 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --bg: #0f1626;
+  --panel: #1b2735;
+  --accent: #4fd1c5;
+  --accent-strong: #f56565;
+  --text: #f7fafc;
+  --muted: #94a3b8;
+  --success: #68d391;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1e2a3a, var(--bg));
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.noscript-warning {
+  background: var(--accent-strong);
+  color: #0f172a;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.app {
+  width: min(1120px, 100%);
+  background: rgba(15, 22, 38, 0.9);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.4);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.header {
+  padding: 1.75rem 2rem 1rem;
+  border-bottom: 1px solid rgba(79, 209, 197, 0.35);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+}
+
+.tagline {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 3fr 1.1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem 2rem;
+}
+
+.game-panel {
+  background: var(--panel);
+  border-radius: 1rem;
+  padding: 1rem 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: inset 0 0 0 1px rgba(79, 209, 197, 0.1);
+}
+
+#game-canvas {
+  width: 100%;
+  background: linear-gradient(180deg, rgba(12, 23, 36, 0.9), rgba(12, 17, 28, 0.9));
+  border-radius: 0.9rem;
+  border: 1px solid rgba(79, 209, 197, 0.3);
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+button {
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  font-family: inherit;
+}
+
+button.primary {
+  background: var(--accent);
+  color: #032c32;
+  box-shadow: 0 6px 16px rgba(79, 209, 197, 0.4);
+}
+
+button.secondary {
+  background: rgba(79, 209, 197, 0.18);
+  color: var(--accent);
+  border: 1px solid rgba(79, 209, 197, 0.3);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(79, 209, 197, 0.4);
+}
+
+.hud {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.stat {
+  background: var(--panel);
+  border-radius: 1rem;
+  padding: 1rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  box-shadow: inset 0 0 0 1px rgba(79, 209, 197, 0.15);
+}
+
+.label {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.value {
+  font-size: 1.6rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.value.status-ok {
+  color: var(--success);
+}
+
+.value.status-warning {
+  color: #f6ad55;
+}
+
+.value.status-alert {
+  color: var(--accent-strong);
+}
+
+.instructions {
+  background: rgba(15, 22, 38, 0.65);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: inset 0 0 0 1px rgba(79, 209, 197, 0.1);
+}
+
+.instructions h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.instructions ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.instructions li {
+  color: var(--muted);
+}
+
+.ban-screen {
+  padding: 3rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.ban-screen h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--accent-strong);
+  margin: 0;
+}
+
+.ban-screen .ban-details {
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: min(600px, 100%);
+  text-align: left;
+  color: #fed7d7;
+  font-size: 0.95rem;
+}
+
+.ban-screen .ban-details h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.ban-screen ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.ban-screen time {
+  font-feature-settings: 'tnum';
+}
+
+@media (max-width: 960px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .hud {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .instructions {
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 1rem;
+  }
+
+  .app {
+    border-radius: 1rem;
+  }
+
+  .main {
+    padding: 1rem;
+  }
+
+  .game-panel {
+    padding: 0.75rem;
+  }
+}
