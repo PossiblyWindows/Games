@@ -1,6 +1,3 @@
-(() => {
-  'use strict';
-
 const decodeSegment = (segment) => {
   try {
     return typeof globalThis.atob === 'function' ? globalThis.atob(segment) : segment;
@@ -721,5 +718,3 @@ if (document.readyState === 'loading') {
 } else {
   initialize();
 }
-
-})();
